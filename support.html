@@ -9,13 +9,48 @@
             font-family: sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0; /* Changed padding to 0 as header will have its own */
             background-color: #f4f4f4;
             color: #333;
         }
+
+        /* Styles for the new header */
+        .site-header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            /* Removed margin-bottom here, will let body padding handle space */
+        }
+        .logo-container img#app-logo {
+            max-height: 50px;
+            width: auto;
+        }
+        .main-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        .main-nav li {
+            margin-left: 20px;
+        }
+        .main-nav a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .main-nav a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+        /* Main content container */
         .container {
             max-width: 800px;
-            margin: auto;
+            margin: 20px auto; /* Added top margin to separate from header */
             background: #fff;
             padding: 30px;
             border-radius: 8px;
@@ -34,18 +69,18 @@
             border-bottom: 1px solid #eee;
             padding-bottom: 5px;
         }
-        p, ul, li {
+        p, ul, li:not(.main-nav li) { /* Ensure general li style doesn't mess with nav */
             margin-bottom: 10px;
         }
-        ul {
+        ul:not(.main-nav ul) { /* Ensure general ul style doesn't mess with nav */
             padding-left: 20px;
         }
         a {
             color: #007bff;
-            text-decoration: none;
+            /* text-decoration: none; removed as it's handled by .main-nav a and general a might need underline */
         }
         a:hover {
-            text-decoration: underline;
+            /* text-decoration: underline; removed as it's handled by .main-nav a */
         }
         .contact-info p {
             font-size: 1.1em;
@@ -67,6 +102,21 @@
     </style>
 </head>
 <body>
+
+    <header class="site-header">
+        <div class="logo-container">
+            <a href="index.html"> 
+                <img src="logo.png" alt="Arete Digital Closet Logo" id="app-logo">
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="support.html">Guide and Support</a></li>
+                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="container">
         <h1>Support for Arete Digital Closet</h1>
 
@@ -193,8 +243,8 @@
         </section>
 
         <footer>
-            <p>&copy; 2025 Arete Digital Closet. All rights reserved.</p>
-            <p><a href="[Link to your Privacy Policy - MAKE SURE TO ADD THIS LINK]">Privacy Policy</a></p>
+            <p>&copy; 2024 Arete Digital Closet. All rights reserved.</p>
+            <p><a href="privacy-policy.html">Privacy Policy</a></p> 
         </footer>
     </div>
 </body>
